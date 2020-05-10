@@ -1,0 +1,42 @@
+@startuml
+
+class Window {
+
+}
+
+interface View {
+    {method} //display()//
+}
+
+abstract class ViewDecorator {
+    {field} # view: View
+    {method} + display()
+}
+
+class TextView {
+    {field} - text
+    {method} + display()
+}
+
+class ScrollDecorator {
+    {method} + display()
+}
+
+class BorderDecorator {
+    {method} + display()
+}
+
+note as N1
+view.display()
+print("...")
+endnote
+
+Window --> "*" View
+View <|.. TextView
+View <|.down. ViewDecorator
+ViewDecorator -up-> View
+ViewDecorator <|-- ScrollDecorator
+ViewDecorator <|-- BorderDecorator
+BorderDecorator .. N1
+
+@enduml

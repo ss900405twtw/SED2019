@@ -1,0 +1,29 @@
+Temperature 1.0
+Humidity 1.0
+Pressure 1.0
+Temperature 2.0
+Humidity 2.0
+Pressure 2.0
+Temperature 1.0 1.1
+Humidity 1.0 1.1
+Pressure 1.0 1.1
+Temperature 2.0 2.1
+Humidity 2.0 2.1
+Pressure 2.0 2.1
+Temperature 2.0 2.1 2.2
+Humidity 2.0 2.1 2.2
+Pressure 2.0 2.1 2.2
+Temperature 1.0 1.1 1.3
+Humidity 1.0 1.1 1.3
+Pressure 1.0 1.1 1.3
+Temperature 1.3
+Humidity 1.3
+Pressure 1.3
+Forecast rain.
+Temperature 2.0 2.1 2.2 2.3
+Humidity 2.0 2.1 2.2 2.3
+Pressure 2.0 2.1 2.2 2.3
+Temperature 2.3
+Humidity 2.3
+Pressure 2.3
+Forecast rain.

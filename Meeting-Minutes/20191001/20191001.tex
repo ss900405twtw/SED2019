@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage[table]{xcolor}    % loads also colortbl
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{geometry}
+
+% A4 is 210mm × 297mm
+\geometry{
+	a4paper,
+	total={194mm, 289mm},
+	left=3mm,
+	top=4mm,
+}
+
+\definecolor{background}{rgb}{0.824,0.918,0.945}
+\definecolor{border}{rgb}{0.282,0.675,0.776}
+
+\renewcommand{\familydefault}{\sfdefault}
+% https://tex.stackexchange.com/a/150650
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+% https://tex.stackexchange.com/a/89932
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+% https://tex.stackexchange.com/a/343329
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+\newcommand{\OngoingStatus}{\textcolor{red}{\textbf{Ongoing}}}
+\newcommand{\Closed}[1]{\textcolor{black}{\textbf{Closed #1}}}
+
+\begin{document}
+
+\arrayrulecolor{border}
+\arrayrulewidth=1pt
+
+\rowcolors{2}{}{background}
+
+\begin{tabularx}{\textwidth}{
+    |>{\hsize=.47\hsize}X|
+	>{\hsize=1.53\hsize}X|
+}
+\hline
+\multicolumn{2}{|c|}{\textbf{Software Engineering Design 2019 Group 2 Meeting Minutes}} \\
+\hline
+Date & 2019/10/01 \\
+\hline
+Time & 20:00 - 22:00 \\
+\hline
+Location & CSIE building room 542\\
+\hline
+Facilitator & Chih-Hsuan Yen \\
+\hline
+Recorded by & Po-Sheng Lin \\
+\hline
+Objective & Decide a web framework \\
+\hline
+\end{tabularx}
+
+\rowcolors{2}{background}{}
+\vspace{-1mm}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Participants}} \\
+\hline
+Name & E-mail & Role & Present or not \\
+\hline
+Chih-Hsuan Yen & yan12125@gmail.com & Team Leader & Y \\
+\hline
+Chen-Hung Wu & ac791228@gmail.com & Team Member & Y \\
+\hline
+Po-Sheng Lin & b890052@gmail.com  & Team Member & Y \\
+\hline
+Cheng-Jhih Shih & cs861324@gmail.com & Team Member & Y \\
+\hline
+Jui-Che Wu & ss900405twtw@gmail.com & Team Member & Y \\
+\hline
+Yifan Wu &  eurekalilychou@gmail.com & Team Member & Y \\
+\hline
+Pin-Yen Huang & pinyentraffic@gmail.com & Team Member & Y \\
+\hline
+Wei-Jie Liang & jack55513608@gmail.com & Team Member & Y \\
+\hline
+\end{tabularx}
+
+\rowcolors{2}{background}{}
+\vspace{-1mm}
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Meeting Agenda}} \\
+\hline
+	\begin{itemize}
+		\item Decide a web framework
+	\end{itemize} \\
+\hline
+\multicolumn{1}{|c|}{\textbf{Issues}} \\
+	\begin{itemize}
+		\item Decide a web framework
+		\begin{itemize}
+			\item web2py
+    			\begin{itemize}
+                    \item Number of lines: 118500 (Python)
+        			\item Originally designed as a teaching tool with emphasis on ease of use and deployment.
+        			\item A full-stack framework without dependencies
+        			\item Focuses on rapid development, favors convention over configuration approach and follows a model–view–controller (MVC) architectural pattern
+        			\item PyDAL
+	    			\begin{itemize}
+	    			    \item Database Abstraction Layer (DAL) of web2py
+	    			    \item Decoupled into a separate code-base in 2015, now a sub-module in the main repository in Git
+        			    \item Number of lines: 25280 (Python)
+        			    \item Dynamically generates the SQL/NoSQL in realtime using the specified dialect for the database backend
+        			\end{itemize}
+    			\end{itemize}
+
+		\end{itemize}
+	\end{itemize} \\
+\hline
+\end{tabularx}
+
+\rowcolors{2}{}{background}
+\vspace{-1mm}
+\begin{tabularx}{\textwidth}{
+	|c|
+	 >{\hsize=2\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+}
+\hline
+\multicolumn{6}{|c|}{\textbf{Action Items}} \\
+\hline
+No. & Action Items & Responsibility & Deadline & Status & Remark \\
+\hline
+1 & Survey Grails & Chih-Hsuan Yen, Yifan Wu & 10/1 & \Closed{10/1} & \\
+\hline
+2 & Survey Web2py & Po-Sheng Lin, Chen-Hung Wu & 10/1 & \Closed{10/1} & \\
+\hline
+3 & Survey DropWizard & Cheng-Jhih Shih, Pin-Yen Huang & 10/1 & \Closed{10/1} & \\
+\hline
+4 & Survey Nutch & Jui-Che Wu & 10/1 & \Closed{10/1} & \\
+\hline
+
+\end{tabularx}
+
+\end{document}
+
+

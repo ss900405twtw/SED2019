@@ -1,0 +1,67 @@
+@startuml
+
+Class USWeatherData {
+    {field} currentConditionDisplay: CurrentConditionsDisplay
+    {field} statisticDisplay: StatisticDisplay
+    {field} forecastDisplay: ForecastDisplay
+    {method} getTemperature()
+    {method} getHumidity()
+    {method} getPressure()
+    {method} notify()
+    {method} attach(CurrentConditionsDisplay)
+    {method} attach(StatisticDisplay)
+    {method} attach(ForecastDisplay)
+    {method} detach(CurrentConditionsDisplay)
+    {method} detach(StatisticDisplay)
+    {method} detach(ForecastDisplay)
+}
+
+Class AsiaWeatherData {
+    {field} currentConditionDisplay: CurrentConditionsDisplay
+    {field} statisticDisplay: StatisticDisplay
+    {field} forecastDisplay: ForecastDisplay
+    {method} getTemperature()
+    {method} getHumidity()
+    {method} getPressure()
+    {method} notify()
+    {method} attach(CurrentConditionsDisplay)
+    {method} attach(StatisticDisplay)
+    {method} attach(ForecastDisplay)
+    {method} detach(CurrentConditionsDisplay)
+    {method} detach(StatisticDisplay)
+    {method} detach(ForecastDisplay)
+}
+
+Class CurrentConditionsDisplay {
+    {method} update(Temperature, Humidity, Pressure)
+}
+
+Class StatisticDisplay {
+    {method} update(Temperature, Humidity, Pressure)
+}
+
+Class ForecastDisplay {
+    {method} update(Temperature, Humidity, Pressure)
+}
+
+note as N1
+<size:8>float temp = getTemperature()</size>
+<size:8>float humidity = getHumidity()</size>
+<size:8>float pressure = getPressure()</size>
+<size:8>CurrentConditionsDisplay.update(temp, humidity, pressure)</size>
+<size:8>StatisticDisplay.update(temp, humidity, pressure)</size>
+<size:8>ForecastDisplay.update(temp, humidity, pressure)</size>
+endnote
+
+USWeatherData -down-> CurrentConditionsDisplay
+USWeatherData -down-> StatisticDisplay
+USWeatherData -down-> ForecastDisplay
+
+AsiaWeatherData -down-> CurrentConditionsDisplay
+AsiaWeatherData -down-> StatisticDisplay
+AsiaWeatherData -down-> ForecastDisplay
+
+USWeatherData .up. N1
+AsiaWeatherData .up. N1
+
+@enduml

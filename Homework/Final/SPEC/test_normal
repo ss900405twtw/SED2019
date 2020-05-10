@@ -1,0 +1,11 @@
+create machine_1 10 20
+add bus bus_1 100 200 machine_1
+add floppy floppy_1 1000 2000 machine_1
+get machine_1 1
+get machine_1 3
+print machine_1
+print bus_1
+sumOfPowerConsumption machine_1
+sumOfPowerConsumption bus_1
+sumOfAdditionCost machine_1
+sumOfAdditionCost floppy_1

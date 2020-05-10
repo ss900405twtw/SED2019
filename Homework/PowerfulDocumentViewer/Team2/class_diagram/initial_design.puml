@@ -1,0 +1,47 @@
+@startuml
+
+class Application {
+    {field} + document: List<Document>
+    {method} + manageDocuments()
+    {method} + createDocument(fileType)
+    {method} + present()
+}
+
+interface Document {
+
+}
+
+class DrawingDocument {
+
+}
+
+class TextDocument {
+
+}
+
+
+
+Application --> "*" Document: present
+DrawingDocument ..|> Document
+TextDocument ..|>  Document
+
+note as N1
+createDocument(fileType)
+{
+    if (fileType.equals("Drawing"))
+    {
+        document.add(new DrawingDocument());
+    }
+    else if (fileType.equals("Text"))
+    {
+        document.add(new TextDocument())
+    }
+    else
+    .
+    .
+    .
+}
+end note
+
+N1 .. Application
+@enduml

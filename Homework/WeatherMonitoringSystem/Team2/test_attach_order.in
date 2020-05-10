@@ -1,0 +1,11 @@
+attach Asia Forecast
+attach Asia Current
+data Asia 1 1 1
+attach Asia Statistics
+data Asia 2 2 2
+detach Asia Current
+data Asia 3 3 3
+attach Asia Current
+data Asia 4 4 4
+detach Asia Forecast
+data Asia 5 5 5

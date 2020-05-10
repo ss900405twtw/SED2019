@@ -1,0 +1,86 @@
+@startuml
+
+Class Client {
+  {field} pre: Presentation
+}
+
+Class Presentation {
+  {field} strategies: List<Strategy>
+  {field} data: LinkedHashMap<Data>
+  {method} change(Strategy, Data): void
+  {method} add(Data): void
+  {method} add(Strategy): void
+  {method} print(): void
+}
+
+Class Data {
+  {field} Item: String
+  {field} Value: Int
+}
+
+Class SpreadSheetStrategy {
+  {method} print(LinkedHashMap<Data>): void
+  {method} modify(): void
+}
+
+Class BarChartStrategy {
+  {method} print(LinkedHashMap<Data>): void
+  {method} modify(): void
+}
+
+Class PieChartStrategy {
+  {method} print(LinkedHashMap<Data>): void
+  {method} modify(): void
+}
+
+interface Strategy {
+  {method} //print(LinkedHashMap<Data>): void//
+  {method} //modify(): void //
+}
+
+Client --> "1" Presentation
+
+Presentation -down-> "*" Strategy
+Presentation -down-> "*" Data
+
+Strategy <|.. SpreadSheetStrategy 
+Strategy <|.. BarChartStrategy 
+Strategy <|.. PieChartStrategy
+
+SpreadSheetStrategy ..> Data
+BarChartStrategy ..> Data
+PieChartStrategy ..> Data
+
+Client ..> SpreadSheetStrategy
+Client ..> BarChartStrategy
+Client ..> PieChartStrategy
+
+note as N1
+<size:8>change (s, d) {</size>
+<size:8>  if d exists </size>
+<size:8>    Data[d] = d.value</size>
+<size:8>  else </size>
+<size:8>    this.Data.add(d) </size>
+<size:8>  this.print() </size>
+<size:8>}</size>
+<size:8>print () {</size>
+<size:8>  loop through strategies to print </size>
+<size:8>}</size>
+end note
+
+note as N2
+<size:8>while (1) {</size>
+<size:8>  if argv[0] == "data" </size>
+<size:8>    pre.add(...)</size>
+<size:8>  else if argv[0] == "addchart"</size>
+<size:8>    pre.addstrategy(...) </size>
+<size:8>  else if argv[0] == "change"</size>
+<size:8>    pre.change(...) </size>
+<size:8>}</size>
+end note
+
+Presentation .left. N1
+
+Client .right. N2
+
+@enduml

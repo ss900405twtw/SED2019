@@ -1,0 +1,11 @@
+create Chassis1 10 100
+add bus Bus1 5 20 Chassis1
+print Chassis1
+print Bus1
+get Chassis1 2
+get Chassis1 1
+sumOfAdditionCost Chassis1
+sumOfPowerConsumption Bus1
+add floppy Floppy1 30 500 Chassis1
+print Chassis1
+sumOfPowerConsumption Chassis1

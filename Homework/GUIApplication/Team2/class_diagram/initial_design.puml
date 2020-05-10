@@ -1,0 +1,68 @@
+@startuml
+
+class GUI_Application {
+    {field} look_and_feel
+    {method} create()
+    {method} setStyle() 
+}
+
+class Motif_Button {
+
+}
+
+class Motif_ScrollBar {
+    
+}
+
+class Motif_Window {
+    
+}
+
+class PM_Button {
+    
+}
+
+class PM_ScrollBar {
+    
+}
+
+class PM_Window {
+    
+}
+
+note as N1
+setStyle (s) {
+    this.look_and_feel = s
+}
+create(String widget) {
+    if (widget == "button" && look_and_feel == "Motif") {
+        add new Motif_Button()
+    }
+    if (widget == "scrollbar" && look_and_feel == "Motif") {
+        add new Motif_ScrollBar())
+    }
+    if (widget == "window" && look_and_feel == "Motif") {
+        add new Motif_Window()
+    }
+    if (widget == "button" && look_and_feel == "PM") {
+        add new PM_Button()
+    }
+    if (widget == "scrollbar" && look_and_feel == "PM") {
+        add new PM_Button()
+    }
+    if (widget == "window" && look_and_feel == "PM") {
+        add new PM_Button()
+    }
+}
+endnote
+
+GUI_Application --> "*" Motif_Button
+GUI_Application --> "*" Motif_ScrollBar
+GUI_Application --> "*" Motif_Window
+GUI_Application --> "*" PM_Button
+GUI_Application --> "*" PM_ScrollBar
+GUI_Application --> "*" PM_Window
+GUI_Application .. N1
+
+
+@enduml

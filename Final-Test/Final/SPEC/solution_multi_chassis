@@ -1,0 +1,18 @@
+machine_1:bus_1
+Index 2 out of bound of machine_2
+Index 3 out of bound of machine_1
+1010
+2020
+machine_1 (10.1, 20.2)
+machine_1:bus_1 (100.01, 200.02)
+machine_1:floppy_1 (1000.001, 2000.002)
+machine_2:floppy_21
+bus_1 (100.01, 200.02)
+1110.111
+bus_1 does not support command sumOfPowerConsumption
+2220.222
+floppy_1 does not support command sumOfAdditionCost
+machine_2 (10, 20)
+machine_2:floppy_2 (1000, 2000)
+machine_2:floppy_21 (100, 200)
+machine_2:floppy_22 (100, 200)

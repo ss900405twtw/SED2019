@@ -1,0 +1,48 @@
+@startuml
+
+class RTFConverter {
+    {field} + rawText: char[]
+    {method} + convert(String format, String rawText) : TextFormat
+}
+
+class TeXText {
+
+}
+
+class WidgetText {
+
+}
+
+class TextFormat {
+    {field} + text: String
+    {method} + display(): void
+}
+
+note as N1
+if format.equals("Tex"):
+    TeXText tex = new TeXText()
+    for (char c: rawText):
+        if c == "C"
+            // do character conversion
+        else if c == "P"
+            // do sth
+        else if c == "F"
+            // do sth
+    return tex
+else if format.equals("Widget"):
+    WidgetText widgte = new WidgetText();
+     :
+     :
+     :
+    return widget
+endnote
+
+N1 .left. RTFConverter
+
+TextFormat <|-up- TeXText
+TextFormat <|-up- WidgetText
+
+RTFConverter .down.> TeXText
+RTFConverter .down.> WidgetText
+
+@enduml

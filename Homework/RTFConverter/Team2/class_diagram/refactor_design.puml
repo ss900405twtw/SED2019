@@ -1,0 +1,127 @@
+@startuml
+
+
+class RTFConverter {
+    {method} + convert(TextConverter converter, String text): TextFormat
+}
+
+abstract class TextConverter {
+    {field} + convertMap<Character, ConvertToken>
+    {method} + convert(String text): TextFormat
+    {abstract} + newText(): TextFormat
+}
+
+class TeXConverter {
+    {method} + newText(): TextFormat
+}
+
+class WidgetCoverter {
+    {method} + newText(): TextFormat
+}
+
+class TextFormat {
+    {field} # content: String
+    {method} + display(): void
+    {method} + append(String s): void
+}
+
+class TeXText {
+}
+
+class WidgetText {
+}
+
+interface ConvertToken {
+    {abstract} + convert(): String
+}
+
+interface CConvertToken {
+    {abstract} + convert(): String
+}
+
+interface PConvertToken {
+    {abstract} + convert(): String
+}
+
+interface FConvertToken {
+    {abstract} + convert(): String
+}
+
+class TeXCConvertToken {
+    {method} + convert(): String
+}
+
+class WidgetCConvertToken {
+    {method} + convert(): String
+}
+
+class TeXPConvertToken {
+    {method} + convert(): String
+}
+
+class WidgetPConvertToken {
+    {method} + convert(): String
+}
+
+class TeXFConvertToken {
+    {method} + convert(): String
+}
+
+class WidgetFConvertToken {
+    {method} + convert(): String
+}
+
+note as N1
+TextFormat convert (TextConverter converter, String text)
+{
+    return (converter.convert(text));
+}
+endnote 
+
+note as N2
+TextFormat convert(String text)
+{
+    TextFormat textFormat = newText();
+    for (char c : text.toCharArray()){
+        String ptext = "";
+        ConvertToken ct = convertMap.get(c);
+        if (ct != null) ptext = ct.convert();
+        textFormat.append(ptext);
+    }
+    return textFormat
+}
+endnote
+
+RTFConverter .up. N1
+TextConverter .up. N2
+
+RTFConverter ..> TextConverter : <<use>>
+
+TextConverter <|-down- TeXConverter 
+TextConverter <|-down- WidgetCoverter
+
+TextFormat <|-up- TeXText
+TextFormat <|-up- WidgetText
+
+TeXConverter ..> TeXText : <<create>>
+WidgetCoverter ..> WidgetText : <<create>>
+
+ConvertToken <|.down. CConvertToken
+ConvertToken <|.down. PConvertToken
+ConvertToken <|.down. FConvertToken
+CConvertToken <|.down. TeXCConvertToken
+CConvertToken <|.down. WidgetCConvertToken
+PConvertToken <|.down. TeXPConvertToken
+PConvertToken <|.down. WidgetPConvertToken
+FConvertToken <|.down. TeXFConvertToken
+FConvertToken <|.down. WidgetFConvertToken
+
+TeXConverter -right-> TeXCConvertToken
+TeXConverter -right-> TeXPConvertToken
+TeXConverter -right-> TeXFConvertToken
+
+WidgetCoverter -right-> WidgetCConvertToken
+WidgetCoverter -right-> WidgetPConvertToken
+WidgetCoverter -right-> WidgetFConvertToken
+
+@enduml

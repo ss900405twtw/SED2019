@@ -1,0 +1,45 @@
+@startuml
+
+Class Presentation {
+  {field} obj: List<Data>
+  {field} spreadsheets: List<spreadsheet>
+  {field} barcharts: List<barchart>
+  {field} piecharts: List<piechart>
+  {method} addChart
+  {method} change
+}
+
+Class Data {
+  {field} Item: String
+  {field} Value: Int
+}
+
+Class spreadsheet {
+  {field} order: Int
+  {method} print
+  {method} modify
+}
+
+Class barchart {
+  {field} order: Int
+  {method} print
+  {method} modify
+}
+
+Class piechart {
+  {field} order: Int
+  {method} print
+  {method} modify
+}
+
+Presentation "1" --> "*" Data
+
+Presentation "1" --> "*" piechart
+Presentation "1" --> "*" barchart
+Presentation "1" --> "*" spreadsheet
+
+piechart ..> Data : <use>
+barchart ..> Data : <use>
+spreadsheet ..> Data : <use>
+
+@enduml

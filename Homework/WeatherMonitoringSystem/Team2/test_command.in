@@ -1,0 +1,10 @@
+data Asia 00.0 0.0 0000.0
+attach Asia Current
+data Asia 11.1 1.1 1111.1
+detach Asia Current
+attach Asia Forecast
+data Asia 22.2 2.2 2222.2
+detach Asia Forecast
+attach Asia Statistics
+data Asia 33.3 3.3 3333.3
+detach Asia Statistics

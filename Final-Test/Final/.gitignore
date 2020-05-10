@@ -1,0 +1,5 @@
+*.class
+Test.*
+.DS_Store
+~*
+*.out

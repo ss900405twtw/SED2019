@@ -1,0 +1,90 @@
+@startuml
+
+class PrintOut {
+    {field} + DSMap: Map<String, DataStructure>
+    {method} + traverse(DataStructure ds): void
+}
+
+class List {
+    {field} + content: ArrayList<String>
+    {field} + length: int
+    {method} + createIterator(): Iterator
+    {method} + add(String): void
+    {method} + get(int index): String
+
+}
+
+class SkipList {
+    {field} + content: ArrayList<SkipNode>
+    {method} + createIterator(): Iterator
+    {method} + getNode(int index): SkipNode
+    {method} + size(): int
+    {method} + add(String): void
+}
+
+class SkipNode {
+    {field} + text: String
+    {method} + toString(): String
+}
+
+interface DataStructure {
+    {abstract} + createIterator)(): Iterator
+    {abstract} + add(String): void
+}
+
+interface Iterator {
+    {abstract} + next(): Object
+    {abstract} + hasnext(): Boolean
+}
+
+class ListIterator {
+    {field} + index: int
+    {field} + list: List
+    {method} + next(): String
+    {method} + hasnext(): Boolean
+}
+
+class SkipListIterator {
+    {field} + index: int
+    {field} + list: SkipList
+    {method} + next(): SkipNode
+    {method} + hasnext(): Boolean
+}
+
+note as N1
+traverse(DataStructure ds)
+{
+    Iterator i = ds.createIterator();
+    while(i.hasnext())
+    {
+        System.out.println(i.next());
+    }
+}
+endnote
+
+note as N2
+next()
+{
+    String e = list.get(index);
+    index++;
+    return e;
+}
+endnote
+
+N1 .. PrintOut
+N2 .. ListIterator
+
+PrintOut --> Iterator
+PrintOut --> DataStructure
+DataStructure ..> Iterator: <<create>>
+List ..|> DataStructure
+SkipList ..|> DataStructure
+SkipList o--> "*" SkipNode
+SkipListIterator ..|> Iterator
+ListIterator ..|> Iterator
+SkipListIterator o--> SkipList
+ListIterator o--> List
+SkipList ..> SkipListIterator: <<create>>
+List ..> ListIterator: <<create>>
+
+@enduml

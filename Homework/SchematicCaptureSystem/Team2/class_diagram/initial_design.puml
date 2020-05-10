@@ -1,0 +1,25 @@
+@startuml
+
+Class Group {
+
+}
+
+Class Text {
+
+}
+
+Class Line {
+
+}
+
+Class Rectangle {
+
+}
+
+Group --> "*" Text
+Group --> "*" Line
+Group --> "*" Rectangle
+
+Group --> "*" Group
+
+@enduml

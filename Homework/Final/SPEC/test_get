@@ -1,0 +1,9 @@
+create machine_1 10.1 20.2
+add bus bus_1 100.01 200.02 machine_1
+create machine_2 10 20
+add floppy floppy_2 1000 2000 machine_2
+add floppy floppy_1 1000.001 2000.002 machine_1
+add floppy floppy_21 100 200 machine_2
+add floppy floppy_22 100 200 machine_2
+get machine_2 2
+get machine_1 10

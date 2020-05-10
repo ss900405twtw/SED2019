@@ -1,0 +1,30 @@
+@startuml
+
+Class Group {
+    {field} elements: List<Element>
+    {method} addElement(Element): void
+}
+
+Interface Element {
+    {method} //print(): void//
+}
+
+Class Text {   
+    {method} print(): void
+}
+
+Class Line {
+    {method} print(): void
+}
+
+Class Rectangle {
+    {method} print(): void
+}
+
+Element <|.. Text
+Element <|.. Line
+Element <|.. Rectangle
+Element <|.. Group
+Group --> "*" Element
+
+@enduml

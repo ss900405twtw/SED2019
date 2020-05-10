@@ -1,0 +1,8 @@
+machine_1 (10, 20)
+machine_1:bus_1 (100, 200)
+machine_1:floppy_1 (1000, 2000)
+machine_1:bus_2 (100, 200)
+machine_1:bus_3 (100, 200)
+machine_1:floppy_2 (1000, 2000)
+machine_1:bus_4 (100, 200)
+machine_1:bus_5 (100, 200)

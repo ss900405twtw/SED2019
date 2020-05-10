@@ -1,0 +1,4 @@
+There are three types of components in the inventory, such as chassis, buses, and floppies. Among all the componentsm Chassis is a composite of others.
+Chassis provides an interface for the creation of an iterator, which iterates all the components in one chassis with next and hasNext operations.
+Each component provides its power consumption and cost in addition.
+Chassis provides a sum of power consumption or cost for all its components.

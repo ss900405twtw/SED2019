@@ -1,0 +1,10 @@
+create machine_1 10 20
+add bus bus_1 100 200 machine_1
+add floppy floppy_1 1000 2000 machine_1
+add bus bus_2 100 200 machine_1
+add bus bus_3 100 200 machine_1
+add floppy floppy_2 1000 2000 machine_1
+add bus bus_4 100 200 machine_1
+add bus bus_5 100 200 machine_1
+print machine_1
+

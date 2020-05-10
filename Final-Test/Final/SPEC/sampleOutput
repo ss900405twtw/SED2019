@@ -1,0 +1,11 @@
+Chassis1 (10, 100)
+Chassis1:Bus1 (5, 20)
+Bus1 (5, 20)
+Index 2 out of bound of Chassis1
+Chassis1:Bus1
+120
+Bus1 does not support command sumOfPowerConsumption
+Chassis1 (10, 100)
+Chassis1:Bus1 (5, 20)
+Chassis1:Floppy1 (30, 500)
+45

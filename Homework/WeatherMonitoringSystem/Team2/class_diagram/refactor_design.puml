@@ -1,0 +1,72 @@
+@startuml
+
+Class USWeatherData {
+    {method} getTemperature()
+    {method} getHumidity()
+    {method} getPressure()
+}
+
+Class AsiaWeatherData {
+    {method} getTemperature()
+    {method} getHumidity()
+    {method} getPressure()
+}
+
+abstract Class Data {
+    {field} display: Display[]
+    {method} notify()
+    {method} attach(Display)
+    {method} detach(Display)
+    {method} //getTemperature()//
+    {method} //getHumidity()//
+    {method} //getPressure()//
+}
+
+note as N1
+<size:8>for(int i=0;i<display.length.i++){</size> 
+<size:8>  display[i].update(getTemperature(),</size>
+<size:8>                    getHumidity(),</size>
+<size:8>                    getPressure());</size>
+<size:8>}</size>
+endnote
+
+Data <|-- AsiaWeatherData
+Data <|-- USWeatherData
+Data .left. N1
+
+abstract class Display {
+    {method} //update(data: Data)//
+}
+
+class CurrentConditionsDisplay {
+    {method} update(data: Data)
+}
+
+Class StatisticDisplay {
+    {method} update(data: Data)
+}
+
+Class ForecastDisplay {
+    {method} update(data: Data)
+}
+
+Data -right-> "*" Display
+Display ..> Data : <<Use>>
+
+
+Display <|-- CurrentConditionsDisplay
+Display <|-- StatisticDisplay
+Display <|-- ForecastDisplay
+
+note as N2
+<size:8>{</size>
+<size:8>  data.getTemperature();</size>
+<size:8>  data.getHumidity();</size>
+<size:8>  data.getTemperature();</size>
+<size:8>  ...</size>
+<size:8>}</size>
+endnote
+
+CurrentConditionsDisplay .. N2
+
+@enduml

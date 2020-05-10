@@ -1,0 +1,42 @@
+@startuml
+
+class PrintOut {
+    {method} + traverse(List): void
+    {method} + traverse(SkipList) : void
+}
+
+class List {
+    {field} + length: int
+    {field} + content: String[]
+    {method} + get(int index): String
+
+}
+
+class SkipList {
+    {field} + content: SkipNode[]
+    {method} + getNode(int index): SkipNode
+    {method} + size(): int
+}
+
+class SkipNode {
+    {field} + content: String
+}
+
+note as N1
+traverse(List list)
+{
+    for (int i=0; i<list.length; i++)
+    {
+        String s = list.get(i);
+        // do sth
+    }
+}
+endnote
+
+N1 .left. PrintOut
+
+PrintOut ..> List: <<use>>
+PrintOut ..> SkipList: <<use>>
+SkipList o--> "*" SkipNode
+
+@enduml

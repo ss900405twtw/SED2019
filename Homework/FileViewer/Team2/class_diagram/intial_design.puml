@@ -1,0 +1,45 @@
+@startuml
+
+class Window{
+    {field} textview: List<TextView>
+    {field} bartextview: List<BarTextView>
+    {field} bordertextview: List<BorderTextView>
+    {field} barbordertextview: List<BarBorderTextView>
+}
+
+class TextView {
+    {method} display()
+}
+
+class BarTextView {
+    {method} display()
+}
+
+class BorderTextView {
+    {method} display()
+}
+
+class BarBorderTextView{
+    {method} display()
+}
+
+note as N1
+if (is_TextView) {
+    textview.add(new TextView()) 
+} else if (is_BarTextView) {
+    bartextview.add(new BarTextView())
+} else if (is_BorderTextView) {
+    bordertextview.add(new BorderTextView())
+} else if (is_BarBorderTextView) {
+    barbordertextview.add(new BarBorderTextView)())
+}
+endnote
+
+Window --> "*" TextView
+Window --> "*" BarTextView
+Window --> "*" BorderTextView
+Window --> "*" BarBorderTextView
+
+Window .. N1
+
+@enduml

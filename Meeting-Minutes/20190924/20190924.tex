@@ -1,0 +1,167 @@
+\documentclass{article}
+
+\usepackage[table]{xcolor}    % loads also colortbl
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+% A4 is 210mm × 297mm
+\geometry{
+	a4paper,
+	total={194mm, 289mm},
+	left=3mm,
+	top=4mm,
+}
+
+\definecolor{background}{rgb}{0.824,0.918,0.945}
+\definecolor{border}{rgb}{0.282,0.675,0.776}
+
+\renewcommand{\familydefault}{\sfdefault}
+% https://tex.stackexchange.com/a/150650
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+% https://tex.stackexchange.com/a/89932
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+% https://tex.stackexchange.com/a/343329
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+\newcommand{\OngoingStatus}{\textcolor{red}{\textbf{Ongoing}}}
+
+\begin{document}
+
+\arrayrulecolor{border}
+\arrayrulewidth=1pt
+
+\rowcolors{2}{}{background}
+
+\begin{tabularx}{\textwidth}{
+    |>{\hsize=.47\hsize}X|
+	>{\hsize=1.53\hsize}X|
+}
+\hline
+\multicolumn{2}{|c|}{\textbf{Software Engineering Design 2019 Group 2 Meeting Minutes}} \\
+\hline
+Date & 2019/09/24 \\
+\hline
+Time & 20:30 - 22:00 \\
+\hline
+Location & Remotely via Zoom \\
+\hline
+Facilitator & Chih-Hsuan Yen \\
+\hline
+Recorded by & Chih-Hsuan Yen \\
+\hline
+Objective & Choose one web framework \\
+\hline
+\end{tabularx}
+
+\rowcolors{2}{background}{}
+\vspace{-1mm}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\multicolumn{4}{|c|}{\textbf{Participants}} \\
+\hline
+Name & E-mail & Role & Presence or not \\
+\hline
+Chih-Hsuan Yen & yan12125@gmail.com & Team Leader & Y \\
+\hline
+Chen-Hung Wu & ac791228@gmail.com & Team Member & Y \\
+\hline
+Po-Sheng Lin & b890052@gmail.com  & Team Member & Y \\
+\hline
+Cheng-Jhih Shih & cs861324@gmail.com & Team Member & Y \\
+\hline
+Jui-Che Wu & ss900405twtw@gmail.com & Team Member & Y \\
+\hline
+Yifan Wu &  r07943148@ntu.edu.tw & Team Member & Y \\
+\hline
+Pin-Yen Huang & pinyentraffic@gmail.com & Team Member & Y \\
+\hline
+Wei-Jie Liang & jack55513608@gmail.com & Team Member & Y \\
+\hline
+\end{tabularx}
+
+\rowcolors{2}{background}{}
+\vspace{-1mm}
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Meeting Agendas}} \\
+\hline
+	\begin{itemize}
+		\item Decide a web framework
+	\end{itemize} \\
+\hline
+\multicolumn{1}{|c|}{\textbf{Issues}} \\
+	\begin{itemize}
+		\item Decide a web framework
+		\begin{itemize}
+			\item Survey candidates to decide the web framework for the term project.
+
+			\item Requirements
+			\begin{itemize}
+				\item 要是Web framework
+				\item 八個人每人10000行，大約80000行
+			\end{itemize}
+
+			\item Criteria
+			\item 語言
+			\begin{itemize}
+				\item Java
+				\begin{itemize}
+					\item 看Java的framework就不用上課學一套語言，project又要學一套語言
+				\end{itemize}
+				\item Python
+				\begin{itemize}
+					\item 大家都對Python比較熟
+				\end{itemize}
+				\item \href{https://www.tiobe.com/tiobe-index/}{語言的popularity}
+			\end{itemize}
+			\item 行數
+			\begin{itemize}
+				\item \href{https://codetabs.com/count-loc/count-loc-online.html}{算行數工具}
+				\item \href{https://zhuanlan.zhihu.com/p/36450969}{各大主流语言web框架代码行数对比}
+			\end{itemize}
+			\item Popularity
+			\begin{itemize}
+				\item \href{https://raygun.com/blog/popular-java-frameworks/}{17 Popular Java Frameworks - 2019 edition}
+				\begin{itemize}
+					\item 有些不是Web framework
+				\end{itemize}
+			\end{itemize}
+			\item Candidates for study only: Grails, Web2py, Nutch
+			\item Candidates for rewriting into another language: DropWizard
+			\item Need to check if Nutch is a web framework or not.
+		\end{itemize}
+	\end{itemize} \\
+\hline
+\end{tabularx}
+
+\rowcolors{2}{}{background}
+\vspace{-1mm}
+\begin{tabularx}{\textwidth}{
+	|c|
+	 >{\hsize=2\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+	 >{\hsize=.5\hsize}Y|
+}
+\hline
+\multicolumn{6}{|c|}{\textbf{Action Items}} \\
+\hline
+No. & Action Items & Responsibility & Deadline & Status & Remark \\
+\hline
+1 & Survey Grails & Chih-Hsuan Yen, Yifan Wu & 10/1 & \OngoingStatus & \\
+\hline
+2 & Survey Web2py & Po-Sheng Lin, Chen-Hung Wu & 10/1 & \OngoingStatus & \\
+\hline
+3 & Survey DropWizard & Cheng-Jhih Shih, Pin-Yen Huang & 10/1 & \OngoingStatus & \\
+\hline
+4 & Survey Nutch & Jui-Che Wu & 10/1 & \OngoingStatus & \\
+\hline
+
+\end{tabularx}
+
+\end{document}
+
+

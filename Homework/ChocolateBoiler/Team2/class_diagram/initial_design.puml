@@ -1,0 +1,51 @@
+@startuml
+
+class client {
+
+}
+
+class Boiler {
+    {field} - <u>boiler</u>: Boiler
+    {field} - isEmpty: Bool
+    {field} - isBoiled: Bool
+    {method} + fill(): void
+    {method} + boil(): void
+    {method} + drain(): void
+    {method} + <u>getBoiler()</u>: void
+}
+
+note as N1 
+fill() {
+    if (isEmpty && !isBoiled) {
+        do fill
+        isEmpty = false
+    }
+}
+
+boil() {
+    if (!isBoiled && !isEmpty) {
+        do boil
+        isBoiled = true
+    }
+}
+
+drain() {
+    if (isBuild && !isEmpty) {
+        do drain
+        isBoiled = false
+        isEmpty = true
+    }
+}
+
+<u>getBoiler</u> () {
+    if (boiler == NULL) {
+        boiler = new Boiler()
+    }
+    return boiler
+}
+endnote
+
+client ..> Boiler : <<use>>
+N1 .right. Boiler
+
+@enduml

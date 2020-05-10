@@ -1,0 +1,100 @@
+# Refactored Design
+
+
+@startuml
+
+WidgetFactory <|-- MotifWidgetFactory
+WidgetFactory <|-- PMWidgetFactory
+
+Button <|-- MotifButton
+Button <|-- PMButton
+Window <|-- MotifWindow
+Window <|-- PMWindow
+ScrollBar <|-- MotifScrollBar
+ScrollBar <|-- PMScrollBar
+Widget <|-- Button
+Widget <|-- Window
+Widget <|-- ScrollBar
+
+GUI --> "*" Widget
+GUI --> "1" WidgetFactory
+
+MotifWidgetFactory ..> MotifButton: <<creates>>
+MotifWidgetFactory ..> MotifScrollBar: <<creates>>
+MotifWidgetFactory ..> MotifWindow: <<creates>>
+
+PMWidgetFactory ..> PMButton: <<creates>>
+PMWidgetFactory ..> PMScrollBar: <<creates>>
+PMWidgetFactory ..> PMWindow: <<creates>>
+
+interface WidgetFactory {
+  + makeWindow(String): Window
+  + makeScrollBar(String): ScrollBar
+  + makeButton(String): Button
+}
+
+class GUI {
+  - widgets: List<Widget>
+  - widgetFactory: WidgetFactory
+  + add(String, String): void
+  + setStyle(WidgetFactory): void
+  + present(): void
+}
+
+class MotifWidgetFactory{
+  + makeWindow(String): Window
+  + makeScrollBar(String): ScrollBar
+  + makeButton(String): Button
+}
+
+class PMWidgetFactory {
+  + makeWindow(String): Window
+  + makeScrollBar(String): ScrollBar
+  + makeButton(String): Button
+}
+
+abstract class Widget {
+  - id: int
+  - name: String
+  + {abstract} present(): void
+}
+
+abstract class Window {
+  - {static} priority = 1
+}
+
+class MotifWindow {
+  + present(): void
+}
+
+class PMWindow {
+  + present(): void
+}
+
+abstract class ScrollBar {
+  - {static} priority  = 2
+}
+
+class MotifScrollBar {
+  + present(): void
+}
+
+class PMScrollBar {
+  + present(): void
+}
+
+abstract class Button {
+  {static} priority = 3
+}
+
+class MotifButton {
+  + present(): void
+}
+
+class PMButton {
+  + present(): void
+}
+
+
+
+@enduml

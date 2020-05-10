@@ -1,0 +1,13 @@
+attach US Statistics
+data US 1 1 1
+attach Asia Statistics
+data Asia 2 2 2
+data US 1.1 1.1 1.1
+attach US Current
+data Asia 2.1 2.1 2.1
+attach US Forecast
+data Asia 2.2 2.2 2.2
+attach Asia Current
+attach Asia Forecast
+data US 1.3 1.3 1.3
+data Asia 2.3 2.3 2.3

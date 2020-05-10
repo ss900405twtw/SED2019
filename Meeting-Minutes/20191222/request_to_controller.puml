@@ -1,0 +1,44 @@
+@startuml
+start
+
+:Server manages HTTP requests;
+
+:Parse the HTTP request header;
+
+if (Request for a static file) then (True)
+:Read and return (stream) the requested file;
+stop
+
+else (False)
+:Expose wsgi hooks;
+
+:Parse and load cookies;
+
+:Load session or create a new one;
+
+:Run application;
+
+(A)
+detach
+endif
+
+' if (Controller returns
+'     an XML element?) then (True)
+'     :Transform the XML element
+'      into XML texts;
+' else (no)
+'     if (Controller returns a dict?) then (True)
+'         :Render views;
+'         note left
+'             * Transform the template
+'               into Python code
+'             * Run it
+'         end note
+'     else (False)
+'         :Return it directly
+'         (usually a string);
+'     endif
+' endif
+
+
+@enduml
